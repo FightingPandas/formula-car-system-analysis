@@ -1,0 +1,36 @@
+% Skidpad Equilibrium Analysis
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\begin{document}
+\section*{A and B Matrices}
+\subsection*{A Matrix}
+\begin{equation}
+A = \left[\begin{matrix}- \frac{0.5 A C_{d} p \left(2 V_{ref} + 2 e_{vx}\right)}{m} & \psi_{dot} & V_{y} & 0 & 0\\- \psi_{dot} + \frac{\frac{C_{alp f} \left(L_{f} \psi_{dot} + V_{y}\right)}{\left(V_{ref} + e_{vx}\right)^{2}} + \frac{C_{alp r} \left(- L_{r} \psi_{dot} + V_{y}\right)}{\left(V_{ref} + e_{vx}\right)^{2}}}{m} & \frac{- \frac{C_{alp f}}{V_{ref} + e_{vx}} - \frac{C_{alp r}}{V_{ref} + e_{vx}}}{m} & - V_{ref} - e_{vx} + \frac{- \frac{C_{alp f} L_{f}}{V_{ref} + e_{vx}} + \frac{C_{alp r} L_{r}}{V_{ref} + e_{vx}}}{m} & 0 & 0\\\frac{\frac{C_{alp f} L_{f} \left(L_{f} \psi_{dot} + V_{y}\right)}{\left(V_{ref} + e_{vx}\right)^{2}} - \frac{C_{alp r} L_{r} \left(- L_{r} \psi_{dot} + V_{y}\right)}{\left(V_{ref} + e_{vx}\right)^{2}}}{I_{2}} & \frac{- \frac{C_{alp f} L_{f}}{V_{ref} + e_{vx}} + \frac{C_{alp r} L_{r}}{V_{ref} + e_{vx}}}{I_{2}} & \frac{- \frac{C_{alp f} L_{f}^{2}}{V_{ref} + e_{vx}} - \frac{C_{alp r} L_{r}^{2}}{V_{ref} + e_{vx}}}{I_{2}} & 0 & 0\\\sin{\left(e_{\psi} \right)} & \cos{\left(e_{\psi} \right)} & 0 & 0 & - V_{y} \sin{\left(e_{\psi} \right)} + \left(V_{ref} + e_{vx}\right) \cos{\left(e_{\psi} \right)}\\- K & 0 & 1 & 0 & 0\end{matrix}\right]
+\end{equation}
+\subsection*{B Matrix}
+\begin{equation}
+B = \left[\begin{matrix}\frac{1}{m} & 0\\0 & \frac{C_{alp f}}{m}\\0 & \frac{C_{alp f} L_{f}}{I_{2}}\\0 & 0\\0 & 0\end{matrix}\right]
+\end{equation}
+\section*{Skidpad Equilibrium Analysis}
+\subsection*{Steady-State Yaw Rate (\(\psi_{dot,eq}\))}
+\begin{equation}
+\psi_{dot,eq} = K V_{ref}
+\end{equation}
+\subsection*{Steady-State Lateral Velocity (\(V_{y,eq}\))}
+\begin{equation}
+V_{y,eq} = \frac{K V_{ref} \left(C_{alp r} L_{f} L_{r} + C_{alp r} L_{r}^{2} - L_{f} V_{ref}^{2} m\right)}{C_{alp r} \left(L_{f} + L_{r}\right)}
+\end{equation}
+\subsection*{Steady-State Steering Angle (\(\delta_{eq}\))}
+\begin{equation}
+\delta_{eq} = \frac{K \left(C_{alp f} C_{alp r} L_{f}^{2} + 2 C_{alp f} C_{alp r} L_{f} L_{r} + C_{alp f} C_{alp r} L_{r}^{2} - C_{alp f} L_{f} V_{ref}^{2} m + C_{alp r} L_{r} V_{ref}^{2} m\right)}{C_{alp f} C_{alp r} \left(L_{f} + L_{r}\right)}
+\end{equation}
+\subsection*{A Matrix at Skidpad Equilibrium}
+\begin{equation}
+A_{skidpad} = \left[\begin{matrix}- \frac{1.0 A C_{d} V_{ref} p}{m} & K V_{ref} & \frac{K V_{ref} \left(C_{alp r} L_{f} L_{r} + C_{alp r} L_{r}^{2} - L_{f} V_{ref}^{2} m\right)}{C_{alp r} \left(L_{f} + L_{r}\right)} & 0 & 0\\\frac{K \left(C_{alp f} C_{alp r} L_{f}^{2} + 2 C_{alp f} C_{alp r} L_{f} L_{r} + C_{alp f} C_{alp r} L_{r}^{2} - C_{alp f} L_{f} V_{ref}^{2} m - 2 C_{alp r} L_{f} V_{ref}^{2} m - C_{alp r} L_{r} V_{ref}^{2} m\right)}{C_{alp r} V_{ref} m \left(L_{f} + L_{r}\right)} & \frac{- C_{alp f} - C_{alp r}}{V_{ref} m} & \frac{- C_{alp f} L_{f} + C_{alp r} L_{r} - V_{ref}^{2} m}{V_{ref} m} & 0 & 0\\\frac{K L_{f} \left(C_{alp f} C_{alp r} L_{f}^{2} + 2 C_{alp f} C_{alp r} L_{f} L_{r} + C_{alp f} C_{alp r} L_{r}^{2} - C_{alp f} L_{f} V_{ref}^{2} m + C_{alp r} L_{r} V_{ref}^{2} m\right)}{C_{alp r} I_{2} V_{ref} \left(L_{f} + L_{r}\right)} & \frac{- C_{alp f} L_{f} + C_{alp r} L_{r}}{I_{2} V_{ref}} & \frac{- C_{alp f} L_{f}^{2} - C_{alp r} L_{r}^{2}}{I_{2} V_{ref}} & 0 & 0\\0 & 1 & 0 & 0 & V_{ref}\\- K & 0 & 1 & 0 & 0\end{matrix}\right]
+\end{equation}
+\subsection*{B Matrix at Skidpad Equilibrium}
+\begin{equation}
+B_{skidpad} = \left[\begin{matrix}\frac{1}{m} & 0\\0 & \frac{C_{alp f}}{m}\\0 & \frac{C_{alp f} L_{f}}{I_{2}}\\0 & 0\\0 & 0\end{matrix}\right]
+\end{equation}
+\end{document}
